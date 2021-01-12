@@ -48,15 +48,15 @@ final class VersionsCheck
             // We got higher packages! Let's push it.
             if (\count($higherPackages) > 0) {
                 // Sort packages by highest version to lowest
-//                 usort($higherPackages, function (PackageInterface $p1, PackageInterface $p2) {
-//                     if (Comparator::compare($p1->getVersion(), '=', $p2->getVersion())) {
-//                         return 0;
-//                     }
-//                     if (Comparator::compare($p1->getVersion(), '<', $p2->getVersion())) {
-//                         return 1;
-//                     }
-//                     return -1;
-//                 });
+                usort($higherPackages, function (PackageInterface $p1, PackageInterface $p2) {
+                    if (Comparator::compare($p1->getVersion(), '=', $p2->getVersion())) {
+                        return 0;
+                    }
+                    if (Comparator::compare($p1->getVersion(), '<', $p2->getVersion())) {
+                        return 1;
+                    }
+                    return -1;
+                });
 
                 // Push actual and last package on outdated array
                 array_push(
